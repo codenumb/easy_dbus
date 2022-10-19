@@ -81,19 +81,6 @@ cd build/app2
 ```
 
 expected output
-```console
-./app1 
-appname=app1
-proc.rxbus.app1
-handle_dbus_method_1_call:27: argument received= hello from app2
-handle_dbus_method_1_call:32: return size= 8 data = a,5 
-handle_dbus_method_1_call:27: argument received= hello from app2
-handle_dbus_method_1_call:32: return size= 8 data = a,5 
-handle_dbus_method_1_call:27: argument received= hello from app2
-handle_dbus_method_1_call:32: return size= 8 data = a,5 
-handle_dbus_method_1_call:27: argument received= hello from app2
-handle_dbus_method_1_call:32: return size= 8 data = a,5 
-handle_dbus_method_1_call:27: argument received= hello from app2
-handle_dbus_method_1_call:32: return size= 8 data = a,5 
-```
+![dbus apps output](https://electricchant.files.wordpress.com/2022/10/image-1.png?w=616)
+
 note: i have tested library to a some extend, fixed bugs that i found while testing. The library is opened for any extended testing and detailed profiling. so feel free to drop your comments/suggestions here in the comment section or at my git.
