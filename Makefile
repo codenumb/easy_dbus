@@ -5,10 +5,10 @@ CFLAGS_EASYDBUS_INCLUDE = -I ./include
 LDFLAGS_DBUS = -ldbus-client -levent -L$(BLD_DIR)
 LDFLAGS_LOGMODULE = -llogmodule -L$(BLD_DIR)
 
-all: mkdir liblogmodule libdbus-client app1 app2
+all: mkdir liblogmodule libdbus-client app1 app2 app3 app4
 
 mkdir:
-	-mkdir -p ${BLD_DIR} ${BLD_DIR}/app1 ${BLD_DIR}/app2
+	-mkdir -p ${BLD_DIR} ${BLD_DIR}/app1 ${BLD_DIR}/app2 ${BLD_DIR}/app3 ${BLD_DIR}/app4
 
 liblogmodule: src/logmodule.c
 	$(CC) -shared -o ${BLD_DIR}/$@.so $^ ${CFLAGS_EASYDBUS_INCLUDE} -fPIC -s
@@ -21,6 +21,12 @@ app1: examples/app1/app1.c
 
 app2: examples/app2/app2.c
 	$(CC) $^ -o $(BLD_DIR)/$@/$@  ${CFLAGS_DBUS} ${CFLAGS_DBUS_GLIB} ${CFLAGS_EASYDBUS_INCLUDE} ${LDFLAGS_DBUS} ${LDFLAGS_LOGMODULE} -s
+	
+app4: examples/app4/app4.c
+	$(CC) $^ -o $(BLD_DIR)/$@/$@  ${CFLAGS_DBUS} ${CFLAGS_DBUS_GLIB} ${CFLAGS_EASYDBUS_INCLUDE} ${LDFLAGS_DBUS} ${LDFLAGS_LOGMODULE} -s
+	
+app3: examples/app3/app3.c
+	$(CC) $^ -o $(BLD_DIR)/$@/$@  ${CFLAGS_DBUS} ${CFLAGS_DBUS_GLIB} ${CFLAGS_EASYDBUS_INCLUDE} ${LDFLAGS_DBUS} ${LDFLAGS_LOGMODULE} -s	
 
 clean: 
 	rm -rf $(BLD_DIR)
